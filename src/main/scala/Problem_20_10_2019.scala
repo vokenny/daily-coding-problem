@@ -12,10 +12,10 @@ object Problem_20_10_2019 extends App {
 
   val numbers: List[Int] = 10 :: 15 :: 3 :: 7 :: Nil
 
-//  Recursion:
-//    - Check if any work with index 0
-//    - if yes true
-//    - if no discard and repeat process with remaining list
+  //  Recursion:
+  //    - Check if any work with index 0
+  //    - if yes true
+  //    - if no discard and repeat process with remaining list
 
   def checkSum(x: Int, list: List[Int]): Boolean = {
     @tailrec
