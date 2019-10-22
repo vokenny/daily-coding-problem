@@ -33,5 +33,5 @@ object Problem_20_10_2019 extends App {
     checkSumTailRec(0, list)
   }
 
-  println(checkSum(100, numbers))
+  println(checkSum(18, numbers))
 }

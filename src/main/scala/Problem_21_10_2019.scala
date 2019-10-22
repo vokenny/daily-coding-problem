@@ -23,7 +23,7 @@ object Problem_21_10_2019 extends App {
       index match {
         case -1 => result
         case i if i >= 0 && i < numList.size =>
-          val otherElems: List[Int] = removeAt(index, numList)
+          val otherElems: List[Int] = if (numList.size == 1) numList else removeAt(index, numList)
           getProductsOfOtherElemsTailRec(index - 1, otherElems.foldLeft(1) { (r, e) => r * e } :: result)
           // getProductsOfOtherElemsTailRec(index - 1, otherElems.product :: result)
       }
@@ -33,11 +33,13 @@ object Problem_21_10_2019 extends App {
   }
 
   def removeAt[A](index: Int, list: List[A]): List[A] = {
-    list.splitAt(index) match {
-      case (pre, Nil) => pre
-      case (Nil, post) => post
-      case (pre, _ :: post) => pre ::: post
-    }
+    if (index >= 0 && index < list.size) {
+      list.splitAt(index) match {
+        case (Nil, Nil) => List()
+        case (Nil, _ :: post) => post
+        case (pre, _ :: post) => pre ::: post
+      }
+    } else throw new NoSuchElementException
   }
 
   println(getProductsOfOtherElems(numbers))
