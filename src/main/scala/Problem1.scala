@@ -1,7 +1,8 @@
 import scala.annotation.tailrec
 
-object Problem_20_10_2019 extends App {
+object Problem1 extends App {
 
+  //  EASY
   //  This problem was recently asked by Google.
   //
   //    Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
