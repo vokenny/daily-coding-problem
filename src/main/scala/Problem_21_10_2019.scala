@@ -17,6 +17,9 @@ object Problem_21_10_2019 extends App {
   //  Concatenate product as head of result
   //  Recursion with next index
 
+  // Other approach could be to use the original list. but specifically ignore the given index
+  // or to use filter to avoid the need for removeAt method
+
   def getProductsOfOtherElems(numList: List[Int]): List[Int] = {
     @tailrec
     def getProductsOfOtherElemsTailRec(index: Int, result: List[Int]): List[Int] = {
