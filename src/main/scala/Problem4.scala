@@ -1,3 +1,5 @@
+import scala.annotation.tailrec
+
 object Problem4 extends App {
 
   // HARD
@@ -20,4 +22,23 @@ object Problem4 extends App {
   // if yes, move along one index
   // if no, return first positive missing value (e.g. 3 in 2 & 5)
 
+  def findFirstMissingPosInt(numList: List[Int]): Int = {
+    @tailrec
+    def findFirstMissingPosIntTailRec(yetToSee: List[Int]): Int = {
+      yetToSee match {
+        case Nil => throw new IllegalArgumentException
+        case h :: Nil => h + 1
+        case h :: m :: tail => if (h + 1 == m) findFirstMissingPosIntTailRec(m :: tail) else h + 1
+      }
+    }
+
+    val posIntList = numList.filter(e => e.sign >= 0).sorted
+
+    if (numList.isEmpty) throw new IllegalArgumentException
+    else if (posIntList.isEmpty) findFirstMissingPosIntTailRec(List(0))
+    else findFirstMissingPosIntTailRec(posIntList)
+  }
+
+  println(findFirstMissingPosInt(numbers1))
+  println(findFirstMissingPosInt(numbers2))
 }
