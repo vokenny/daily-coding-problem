@@ -32,13 +32,21 @@ class Problem2__Spec extends FlatSpec {
     assert(Problem2.getProductsOfOtherElems(List(1, 2)) == List(2, 1))
     assert(Problem2.getProductsOfOtherElems(List(2, 3, 4, 5, 6)) == List(360, 240, 180, 144, 120))
     assert(Problem2.getProductsOfOtherElems(List(1, -2, 3, 4, 5)) == List(-120, 60, -40, -30, -24))
+
+    assert(Problem2.getProductsOfOtherElemsFunc(List(0)) == List(1)) // Product of all other elems (Nil) == 1
+    assert(Problem2.getProductsOfOtherElemsFunc(List(5)) == List(1)) // Product of all other elems (Nil) == 1
+    assert(Problem2.getProductsOfOtherElemsFunc(List(1, 2)) == List(2, 1))
+    assert(Problem2.getProductsOfOtherElemsFunc(List(2, 3, 4, 5, 6)) == List(360, 240, 180, 144, 120))
+    assert(Problem2.getProductsOfOtherElemsFunc(List(1, -2, 3, 4, 5)) == List(-120, 60, -40, -30, -24))
   }
 
   it should "return empty list for input of empty list" in {
     assert(Problem2.getProductsOfOtherElems(List()) == List())
+    assert(Problem2.getProductsOfOtherElemsFunc(List()) == List())
   }
 
   it should "return empty list for input of no list" in {
     assert(Problem2.getProductsOfOtherElems(Nil) == List())
+    assert(Problem2.getProductsOfOtherElemsFunc(Nil) == List())
   }
 }

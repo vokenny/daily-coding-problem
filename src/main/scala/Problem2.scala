@@ -47,5 +47,21 @@ object Problem2 extends App {
     } else throw new NoSuchElementException
   }
 
+  // Functional approach is to not use indexes, and track lists as below
+
+  def getProductsOfOtherElemsFunc(numList: List[Int]): List[Int] = {
+    @tailrec
+    def getProductsOfOtherElemsTailRec(seenSoFar: List[Int], yetToSee: List[Int], result: List[Int]): List[Int] = {
+      yetToSee match {
+        case Nil => result.reverse
+        case h :: Nil => getProductsOfOtherElemsTailRec(h :: seenSoFar, Nil, seenSoFar.product :: result)
+        case h :: tail => getProductsOfOtherElemsTailRec(h :: seenSoFar, tail, (seenSoFar.product * tail.product) :: result)
+      }
+    }
+
+    getProductsOfOtherElemsTailRec(Nil, numList, Nil)
+  }
+
   println(getProductsOfOtherElems(numbers))
+  println(getProductsOfOtherElemsFunc(numbers))
 }
