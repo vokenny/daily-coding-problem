@@ -18,4 +18,11 @@ object Problem3 extends App {
   //   node = Node('root', Node('left', Node('left.left')), Node('right'))
   // assert deserialize(serialize(node)).left.left.val == 'left.left'
 
+  sealed trait Tree[A]
+
+  final case class Node[A](leftChild: Tree[A], rightChild: Tree[A])
+  final case class Leaf[A](value: A)
+
+  def serialize[A](tree: Tree[A]): String = ???
+  def deserialize[A](treeStr: String): Tree[A] = ???
 }
