@@ -14,42 +14,9 @@ object Problem2 extends App {
 
   val numbers: List[Int] = 1 :: 2 :: 3 :: 4 :: 5 :: Nil
 
-  //  Create new list excluding the index
-  //  Multiply all in new list
-  //  Concatenate product as head of result
-  //  Recursion with next index
-
-  // Other approach could be to use the original list. but specifically ignore the given index
-  // or to use filter to avoid the need for removeAt method
+  // Functional approach is to not use indexes, and track lists
 
   def getProductsOfOtherElems(numList: List[Int]): List[Int] = {
-    @tailrec
-    def getProductsOfOtherElemsTailRec(index: Int, result: List[Int]): List[Int] = {
-      index match {
-        case -1 => result
-        case i if i >= 0 && i < numList.size =>
-          val otherElems: List[Int] = if (numList.size == 1) numList else removeAt(index, numList)
-          getProductsOfOtherElemsTailRec(index - 1, otherElems.foldLeft(1) { (r, e) => r * e } :: result)
-          // getProductsOfOtherElemsTailRec(index - 1, otherElems.product :: result)
-      }
-    }
-
-    getProductsOfOtherElemsTailRec(numList.size - 1, Nil)
-  }
-
-  def removeAt[A](index: Int, list: List[A]): List[A] = {
-    if (index >= 0 && index < list.size) {
-      list.splitAt(index) match {
-        case (Nil, Nil) => List()
-        case (Nil, _ :: post) => post
-        case (pre, _ :: post) => pre ::: post
-      }
-    } else throw new NoSuchElementException
-  }
-
-  // Functional approach is to not use indexes, and track lists as below
-
-  def getProductsOfOtherElemsFunc(numList: List[Int]): List[Int] = {
     @tailrec
     def getProductsOfOtherElemsTailRec(seenSoFar: List[Int], yetToSee: List[Int], result: List[Int]): List[Int] = {
       yetToSee match {
@@ -62,6 +29,11 @@ object Problem2 extends App {
     getProductsOfOtherElemsTailRec(Nil, numList, Nil)
   }
 
+  // Callum's approach
+
+  def getProductsOfOtherElemsCallum(list: List[Int]): List[Int] = {
+    list.map(x => list.foldLeft(1)((y, z) => if (z != x) y * z else y))
+  }
+
   println(getProductsOfOtherElems(numbers))
-  println(getProductsOfOtherElemsFunc(numbers))
 }
