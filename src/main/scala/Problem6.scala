@@ -1,4 +1,4 @@
-object Problem5 extends App {
+object Problem6 extends App {
 
   // HARD
   // This problem was asked by Google.
