@@ -25,4 +25,5 @@ object Problem3 extends App {
 
   def serialize[A](tree: Tree[A]): String = ???
   def deserialize[A](treeStr: String): Tree[A] = ???
+
 }
