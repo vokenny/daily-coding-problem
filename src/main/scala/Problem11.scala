@@ -11,7 +11,7 @@ object Problem11 extends App {
   //
   // Hint: Try pre-processing the dictionary into a more efficient data structure to speed up queries.
 
-  val dictionary = List("deutsche", "drive", "dog", "deer", "develop", "deal", "dapper", "duo", "drink", "depth", "doppler")
+  val dictionary: List[String] = List("deutsche", "drive", "dog", "deer", "develop", "deal", "dapper", "duo", "drink", "depth", "doppler")
 
   // Sort alphabetically
   // Filter by substring
