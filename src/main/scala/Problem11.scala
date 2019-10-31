@@ -9,11 +9,11 @@ object Problem11 extends App {
   //
   // Hint: Try pre-processing the dictionary into a more efficient data structure to speed up queries.
 
+  val dictionary = List("deutsche", "drive", "dog", "deer", "develop","deal", "dapper", "duo", "drink", "depth", "doppler")
+
   // Sort alphabetically
   // Filter by substring
   // Return all that match filter
-
-  val dictionary = List("deutsche", "drive", "dog", "deer", "develop","deal", "dapper", "duo", "drink", "depth", "doppler")
 
   def autocomplete(dictionary: List[String], queryStr: String): List[String] = {
     dictionary.filter(e => e.contains(queryStr)).sorted
