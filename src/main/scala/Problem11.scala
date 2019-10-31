@@ -1,3 +1,5 @@
+import scala.annotation.tailrec
+
 object Problem11 extends App {
 
   // MEDIUM
@@ -9,15 +11,30 @@ object Problem11 extends App {
   //
   // Hint: Try pre-processing the dictionary into a more efficient data structure to speed up queries.
 
-  val dictionary = List("deutsche", "drive", "dog", "deer", "develop","deal", "dapper", "duo", "drink", "depth", "doppler")
+  val dictionary = List("deutsche", "drive", "dog", "deer", "develop", "deal", "dapper", "duo", "drink", "depth", "doppler")
 
   // Sort alphabetically
   // Filter by substring
   // Return all that match filter
 
   def autocomplete(dictionary: List[String], queryStr: String): List[String] = {
-    dictionary.filter(e => e.contains(queryStr)).sorted
+    if (queryStr.nonEmpty) dictionary.filter(e => e.contains(queryStr)).sorted else throw new IllegalArgumentException
+  }
+
+  def autocompleteAlt(dictionary: List[String], queryStr: String): List[String] = {
+    @tailrec
+    def autocompleteTailRec(remList: List[String], result: List[String]): List[String] = {
+      if (queryStr.nonEmpty)
+        remList match {
+          case h :: tail => if (h.contains(queryStr)) autocompleteTailRec(tail, h :: result) else autocompleteTailRec(tail, result)
+          case _ => result.reverse
+        }
+      else throw new IllegalArgumentException
+    }
+
+    autocompleteTailRec(dictionary.sorted, Nil)
   }
 
   println(autocomplete(dictionary, "de"))
+  println(autocompleteAlt(dictionary, "de"))
 }
