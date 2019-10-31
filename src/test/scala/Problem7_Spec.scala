@@ -1,6 +1,6 @@
 import org.scalatest.{FlatSpec, Matchers}
 
-class Problem7__Spec extends FlatSpec with Matchers {
+class Problem7_Spec extends FlatSpec with Matchers {
 
   "countDecodings" should "return positive count of decodings" in {
     Problem7.countDecodings("111") should be (3)

@@ -1,6 +1,6 @@
 import org.scalatest.FlatSpec
 
-class Problem2__Spec extends FlatSpec {
+class Problem2_Spec extends FlatSpec {
 
   "getProductsOfOtherElems" should "return products of other elements in a list" in {
     assert(Problem2.getProductsOfOtherElems(List(0)) == List(1)) // Product of all other elems (Nil) == 1

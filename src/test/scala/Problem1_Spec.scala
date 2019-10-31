@@ -1,6 +1,6 @@
 import org.scalatest.FlatSpec
 
-class Problem1__Spec extends FlatSpec {
+class Problem1_Spec extends FlatSpec {
 
   "checkSum" should "return true for a sum found in the list" in {
     assert(Problem1.checkSum(5, List(1, 2, 3, 4, 5)))

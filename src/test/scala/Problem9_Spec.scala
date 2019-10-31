@@ -1,6 +1,6 @@
 import org.scalatest.{FlatSpec, Matchers}
 
-class Problem9__Spec extends FlatSpec with Matchers {
+class Problem9_Spec extends FlatSpec with Matchers {
 
   "countDecodings" should "return positive count of decodings" in {
     Problem9.largestSumNonAdj(List(2, 4, 6, 2, 5)) should be (13)
