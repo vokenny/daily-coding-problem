@@ -22,8 +22,6 @@ object Problem9 extends App {
   def largestSumNonAdj(list: List[Int]): Int = {
     @tailrec
     def largestSumNonAdjTailRec(remList: List[(Int, Int)], result: Int): Int = {
-      println(remList)
-      println(result)
       remList match {
         case Nil => result
         case _ =>
