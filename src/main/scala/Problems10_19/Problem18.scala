@@ -15,4 +15,16 @@ object Problem18 extends App {
   // 8 = max(7, 8, 7)
   // Do this in O(n) time and O(k) space. You can modify the input array in-place and you do not need to store the results. You can simply print them out as you compute them.
 
+  // .max for taking largest Ints
+  // .sliding(k) for inspecting Ints of window size k
+  // .map results of .sliding(k)
+
+  val example: List[Int] = List(10, 5, 2, 7, 8, 7)
+
+  def maxOfSubArraySize(k: Int, list: List[Int]): List[Int] = {
+    if (k > 0 && k <= list.size) list.sliding(k).map(e => e.max).toList
+    else throw new IllegalArgumentException
+  }
+
+  println(maxOfSubArraySize(3, example))
 }
