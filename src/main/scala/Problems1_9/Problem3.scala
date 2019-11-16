@@ -1,3 +1,5 @@
+package Problems1_9
+
 object Problem3 extends App {
 
   // MEDIUM

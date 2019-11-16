@@ -1,3 +1,4 @@
+package Problems20_29
 
 object Problem24 extends App {
 

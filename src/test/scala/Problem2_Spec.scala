@@ -1,3 +1,4 @@
+import Problems1_9.Problem2
 import org.scalatest.FlatSpec
 
 class Problem2_Spec extends FlatSpec {

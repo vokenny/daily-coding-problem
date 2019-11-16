@@ -1,3 +1,5 @@
+package Problems10_19
+
 import scala.annotation.tailrec
 
 object Problem11 extends App {

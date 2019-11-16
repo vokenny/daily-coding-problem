@@ -1,3 +1,4 @@
+import Problems10_19.Problem11
 import org.scalatest.{FlatSpec, Matchers}
 
 class Problem11_Spec extends FlatSpec with Matchers {

@@ -1,3 +1,5 @@
+package Problems10_19
+
 object Problem12 extends App {
 
   // HARD

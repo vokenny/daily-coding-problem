@@ -1,3 +1,5 @@
+package Problems1_9
+
 object Problem8 extends App {
 
   // EASY

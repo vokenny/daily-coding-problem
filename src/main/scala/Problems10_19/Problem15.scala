@@ -1,3 +1,5 @@
+package Problems10_19
+
 import scala.annotation.tailrec
 import scala.util.Random
 
