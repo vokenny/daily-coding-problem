@@ -13,4 +13,10 @@ object Problem20 extends App {
   //
   // Do this in O(M + N) time (where M and N are the lengths of the lists) and constant space.
 
+  val list1: List[Int] = List(3, 7, 8, 10)
+  val list2: List[Int] = List(99, 1, 8, 10)
+
+  def findIntersect(l1: List[Int], l2: List[Int]): Option[Int] = l1.find(e => l2.contains(e))
+
+  println(findIntersect(list1, list2))
 }
