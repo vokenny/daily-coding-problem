@@ -1,5 +1,7 @@
 package Problems20_29
 
+import scala.annotation.tailrec
+
 object Problem28 extends App {
 
   // MEDIUM
@@ -21,5 +23,45 @@ object Problem28 extends App {
   // "fox  jumps  over", # 2 extra spaces distributed evenly
   // "the   lazy   dog"] # 4 extra spaces distributed evenly
 
+  val wordsList: List[String] = List("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog")
 
+  // Build current line, and add words to it if it doesn't exceed k length
+  // Once you hit k limit, justify it
+  // Save it to result
+  // Build a new current line
+
+  def equalSpacing(content: List[String], maxLen: Int): String = {
+    @tailrec
+    def addSpaces(added: List[String], notAdded: List[String]): String = {
+      val sentence: String = added.mkString + notAdded.mkString
+
+      if (sentence.length < maxLen) {
+        notAdded match {
+          case Nil => addSpaces(Nil, added)
+          case w :: Nil => addSpaces(Nil, added ::: w :: Nil)
+          case w :: tail => addSpaces(added ::: w + " " :: Nil, tail)
+        }
+      } else sentence
+    }
+
+    addSpaces(Nil, content)
+  }
+
+  def justifyWithLength(content: List[String], maxLen: Int): List[String] = {
+    @tailrec
+    def justify(current: List[String], words: List[String], result: List[String]): List[String] = {
+      words match {
+        case Nil => result
+        case w :: Nil => justify(Nil, Nil, result ::: equalSpacing(current ::: w :: Nil, maxLen) :: Nil)
+        case w :: tail =>
+          val newLine = (current ::: w :: Nil).mkString
+          if (newLine.length > maxLen) justify(Nil, current.last :: words, result ::: equalSpacing(current.init, maxLen) :: Nil)
+          else justify(current ::: w :: Nil, tail, result)
+      }
+    }
+
+    justify(Nil, content, Nil)
+  }
+
+  println(justifyWithLength(wordsList, 16))
 }
