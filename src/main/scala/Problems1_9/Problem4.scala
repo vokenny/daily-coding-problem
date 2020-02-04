@@ -34,7 +34,7 @@ object Problem4 extends App {
       }
     }
 
-    val posIntList = numList.filter(e => e.sign >= 0).sorted
+    val posIntList = numList.filter(e => e.signum >= 0).sorted
 
     if (numList.isEmpty) throw new IllegalArgumentException
     else if (posIntList.isEmpty) findFirstMissingPosIntTailRec(List(0))

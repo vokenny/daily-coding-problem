@@ -1,7 +1,9 @@
-import Problems20_29.Problem26
-import org.scalatest.{FlatSpec, Matchers}
+package TestSpecs.Spec20_29
 
-class Problem26_Spec extends FlatSpec with Matchers {
+import Problems20_29.Problem26
+import TestSpecs.BaseSpec
+
+class Problem26_Spec extends BaseSpec {
 
   val list: List[Int] = (0 to 10).toList
 

@@ -1,8 +1,10 @@
+package TestSpecs.Spec20_29
+
 import Problems20_29.Problem21
 import Problems20_29.Problem21.countNumOfClassroomsNeeded
-import org.scalatest.{FlatSpec, Matchers}
+import TestSpecs.BaseSpec
 
-class Problem21_Spec extends FlatSpec with Matchers {
+class Problem21_Spec extends BaseSpec {
 
   val timeIntervals: List[(Int, Int)] = List(30 -> 75, 0 -> 50, 60 -> 150, 0 -> 60)
 

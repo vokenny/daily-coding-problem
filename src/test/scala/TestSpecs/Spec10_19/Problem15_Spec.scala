@@ -1,10 +1,12 @@
+package TestSpecs.Spec10_19
+
 import Problems10_19.Problem15
-import org.scalatest.{FlatSpec, Matchers}
+import TestSpecs.BaseSpec
 
-class Problem15_Spec extends FlatSpec with Matchers {
+class Problem15_Spec extends BaseSpec {
 
-  val streamStr: LazyList[Int] = LazyList.tabulate(20)(e => e + 1)
-  val streamStrEmpty: LazyList[Int] = LazyList.tabulate(0)(e => e + 1)
+  val streamStr: List[Int] = List.tabulate(20)(e => e + 1)
+  val streamStrEmpty: List[Int] = List.tabulate(0)(e => e + 1)
 
   "randomFromStream" should "return uniformly distributed random integer" in {
     Problem15.randomFromStream(streamStr).isInstanceOf[Int] should be (true)

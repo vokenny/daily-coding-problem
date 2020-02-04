@@ -1,7 +1,9 @@
-import Problems10_19.{Order, OrderIdCsv, OrderIdGen}
-import org.scalatest.{FlatSpec, Matchers}
+package TestSpecs.Spec10_19
 
-class Problem16_Spec extends FlatSpec with Matchers {
+import Problems10_19.{Order, OrderIdCsv, OrderIdGen}
+import TestSpecs.BaseSpec
+
+class Problem16_Spec extends BaseSpec {
 
   "OrderGenId genUuid" should "return new UUID in String format" in {
     OrderIdGen.genUuid() should fullyMatch regex """[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}""".r

@@ -1,7 +1,9 @@
-import Problems1_9.Problem4
-import org.scalatest.FlatSpec
+package TestSpecs.Spec1_9
 
-class Problem4_Spec extends FlatSpec {
+import Problems1_9.Problem4
+import TestSpecs.BaseSpec
+
+class Problem4_Spec extends BaseSpec {
 
   "findFirstMissingPosInt" should "return the first positive missing integer for a given list of integers" in {
     assert(Problem4.findFirstMissingPosInt(List(3, 4, -1, 1)) == 2)

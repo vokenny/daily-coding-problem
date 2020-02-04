@@ -1,7 +1,10 @@
-import Problems20_29.Problem28
-import org.scalatest.{FlatSpec, Matchers}
+package TestSpecs.Spec20_29
 
-class Problem28_Spec extends FlatSpec with Matchers {
+import Problems20_29.Problem28
+import TestSpecs.BaseSpec
+
+
+class Problem28_Spec extends BaseSpec {
 
   val wordsList: List[String] = List("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog")
 

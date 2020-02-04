@@ -1,7 +1,9 @@
-import Problems1_9.Problem7
-import org.scalatest.{FlatSpec, Matchers}
+package TestSpecs.Spec1_9
 
-class Problem7_Spec extends FlatSpec with Matchers {
+import Problems1_9.Problem7
+import TestSpecs.BaseSpec
+
+class Problem7_Spec extends BaseSpec {
 
   "countDecodings" should "return positive count of decodings" in {
     Problem7.countDecodings("111") should be (3)

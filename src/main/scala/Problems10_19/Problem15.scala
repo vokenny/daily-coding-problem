@@ -16,16 +16,16 @@ object Problem15 extends App {
   //
   // This gives constant space because you only ever save one element to memory at any instance
 
-  val streamStr: LazyList[Int] = LazyList.tabulate(20)(e => e + 1)
+  val streamStr: List[Int] = List.tabulate(20)(e => e + 1)
 
-  def randomFromStream(stream: LazyList[Int]): Int = {
+  def randomFromStream(stream: List[Int]): Int = {
     @tailrec
     def randomChar(count: Int, result: Int): Int = {
       count match {
         case 1 => randomChar(count + 1, stream.head)
         case c if c == stream.size => result
         case c if c > 1 =>
-          if (Random.between(0, count) == count - 1) randomChar(count + 1, stream.drop(count - 1).head)
+          if (Random.nextInt(count) == count - 1) randomChar(count + 1, stream.drop(count - 1).head)
           else randomChar(count + 1, result)
       }
     }

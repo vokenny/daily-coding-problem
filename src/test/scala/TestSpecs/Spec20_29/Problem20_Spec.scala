@@ -1,7 +1,9 @@
-import Problems20_29.Problem20
-import org.scalatest.{FlatSpec, Matchers}
+package TestSpecs.Spec20_29
 
-class Problem20_Spec extends FlatSpec with Matchers {
+import Problems20_29.Problem20
+import TestSpecs.BaseSpec
+
+class Problem20_Spec extends BaseSpec {
 
   "findIntersect" should "return first value found in both lists" in {
     Problem20.findIntersect(List(10, 5, 2, 7, 8, 7), List(10, 7)) should be (Some(10))

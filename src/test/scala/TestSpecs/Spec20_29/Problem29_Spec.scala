@@ -1,7 +1,9 @@
-import Problems20_29.Problem29
-import org.scalatest.{FlatSpec, Matchers}
+package TestSpecs.Spec20_29
 
-class Problem29_Spec extends FlatSpec with Matchers {
+import Problems20_29.Problem29
+import TestSpecs.BaseSpec
+
+class Problem29_Spec extends BaseSpec {
 
   "encode" should "return run-length encoding of the sequence" in {
     Problem29.encode("1111LLLOOOLLL") should be ("413L3O3L")

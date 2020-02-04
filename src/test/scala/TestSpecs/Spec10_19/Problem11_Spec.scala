@@ -1,7 +1,9 @@
-import Problems10_19.Problem11
-import org.scalatest.{FlatSpec, Matchers}
+package TestSpecs.Spec10_19
 
-class Problem11_Spec extends FlatSpec with Matchers {
+import Problems10_19.Problem11
+import TestSpecs.BaseSpec
+
+class Problem11_Spec extends BaseSpec {
 
   val dictionary = List("deutsche", "drive", "dog", "deer", "develop","deal", "dapper", "duo", "drink", "depth", "doppler")
 
