@@ -22,34 +22,33 @@ object Problem33 extends App {
   // 2
   // 2
 
+  val seq = List(2, 1, 5, 7, 2, 0, 5)
+
   def printRunningMedian(sequence: List[Int]): Unit = {
     @tailrec
     def printMedian(runSeq: List[Int], remSeq: List[Int]): Unit = {
       remSeq match {
-        case Nil => println(runSeq.sorted)
+        case Nil => println(calcMedian(runSeq))
         case h :: Nil =>
-          println(runSeq.sorted)
+          println(calcMedian(runSeq))
           printMedian(h :: runSeq, Nil)
         case h :: tail =>
-          println(runSeq.sorted)
+          println(calcMedian(runSeq))
           printMedian(h :: runSeq, tail)
       }
     }
 
-    printMedian(Nil, sequence)
+    printMedian(sequence.head :: Nil, sequence.tail)
   }
 
-  def printRunningMean(sequence: List[Int]): Unit = {
-    sequence.foldLeft((0.0, 0.0, 0.0)) { (r, s) => {
-      val sum: Double = r._1 + s
-      val count: Double = r._3 + 1
-      val med: Double = sum/count
-      println(med)
-      (sum, med, count)
-    }}
-  }
+  def calcMedian(seq: List[Int]): Double = {
+    val sorted = seq.sorted
 
-  val seq = List(2, 1, 5, 7, 2, 0, 5)
+    if (sorted.size % 2 == 0) {
+      val (pre: List[Int], post: List[Int]) = sorted.splitAt(sorted.size/2)
+      (pre.last + post.head) / 2.0
+    } else sorted(sorted.size/2)
+  }
 
   printRunningMedian(seq)
 }
