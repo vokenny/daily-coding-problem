@@ -4,6 +4,7 @@ import scala.annotation.tailrec
 
 object Problem42 extends App {
 
+//  HARD
 //  This problem was asked by Google.
 //
 //  Given a list of integers S and a target number k, write a function that returns a subset of S that adds up to k.
