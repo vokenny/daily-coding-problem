@@ -1,13 +1,13 @@
 package TestSpecs.Spec10_19
 
-import Problems10_19.{Order, OrderIdCsv, OrderIdGen}
 import TestSpecs.BaseSpec
+import easy.{Order, OrderIdCsv, OrderIdGen}
 
 class Problem16_Spec extends BaseSpec {
 
   "OrderGenId genUuid" should "return new UUID in String format" in {
-    OrderIdGen.genUuid() should fullyMatch regex """[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}""".r
-    OrderIdGen.genUuid().isInstanceOf[String] should be (true)
+    OrderIdGen.generateUuid() should fullyMatch regex """[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}""".r
+    OrderIdGen.generateUuid().isInstanceOf[String] should be (true)
   }
 
   "Trait Csv filePath" should "return canonical path of filename" in {

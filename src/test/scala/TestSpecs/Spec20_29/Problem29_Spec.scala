@@ -1,7 +1,7 @@
 package TestSpecs.Spec20_29
 
-import Problems20_29.Problem29
 import TestSpecs.BaseSpec
+import easy.Problem29
 
 class Problem29_Spec extends BaseSpec {
 
