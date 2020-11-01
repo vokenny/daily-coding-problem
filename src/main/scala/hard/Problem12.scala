@@ -27,7 +27,7 @@ object Problem12 extends App {
   def stepCountVariations(steps: Int, stepSizes: List[Int]): Int = {
     if (steps == 0) 1
     else {
-      for (step <- stepSizes) yield {
+      for (step: Int <- stepSizes) yield {
         val remainingSteps = steps - step
         if (remainingSteps >= 0) stepCountVariations(remainingSteps, stepSizes) else 0
       }
