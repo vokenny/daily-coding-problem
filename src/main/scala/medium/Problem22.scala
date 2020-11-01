@@ -18,8 +18,6 @@ object Problem22 extends App {
   val dictionary: List[String] = List("quick", "brown", "the", "fox", "bed", "bath", "bedbath", "and", "beyond")
 
   def reconstructSentence1(sentence: String): List[String] = {
-    // This method doesn't return Nil for non-complete reconstructions
-    // It will return the partial reconstruction instead
     var result: List[String] = List()
     val sanitisedSentence: String = sentence.filter(_.isLetter).toLowerCase
 
@@ -30,7 +28,7 @@ object Problem22 extends App {
       })
     }
 
-    result
+    if (result.mkString == sanitisedSentence) result else Nil
   }
 
   def reconstructSentence2(sentence: String): List[String] = {
