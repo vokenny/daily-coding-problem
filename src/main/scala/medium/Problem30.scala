@@ -25,15 +25,15 @@ object Problem30 extends App {
   // |  | |   |  |    | |
   // |_||_|   |_||    |_|
 
+  // Go through list
+  // Take first value
+  // Look for next value >= first value, whilst saving all intermediate values
+  // calcVolInSubContainer
+  // Repeat with last value of first container, and remaining list
+
   val testContainer = List(3, 0, 1, 3, 0, 5)
 
   def calcTotalVolume(container: List[Int]): Int = {
-    // Go through list
-    // Take first value
-    // Look for next value >= first value, whilst saving all intermediate values
-    // calcVolInSubContainer
-    // Repeat with last value of first container, and remaining list
-
     @tailrec
     def accumulateVolumes(remainingContainer: List[Int], currentContainer: List[Int], result: Int): Int = {
       remainingContainer match {
@@ -57,7 +57,7 @@ object Problem30 extends App {
     val maxDepth: Int = (leftWall :: rightWall :: Nil).min
     val middle: List[Int] = container.tail.init
 
-    middle.foldLeft(0)( (vol, height) => (maxDepth - height) + vol)
+    middle.foldLeft(0)((vol, height) => (maxDepth - height) + vol)
   }
 
   println(calcTotalVolume(testContainer))
