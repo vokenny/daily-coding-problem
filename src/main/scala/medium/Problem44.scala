@@ -4,6 +4,8 @@ import scala.annotation.tailrec
 
 object Problem44 extends App {
 
+  // 2020-11-02
+
   // MEDIUM
 
   // This problem was asked by Google.
