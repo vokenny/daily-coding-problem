@@ -22,9 +22,9 @@ object Problem45 extends App {
   }
 
   val results: Seq[(Int, Int)] =
-    (1 to 10000 map (_ => rand7())
-      groupBy (value => value)        // group all instances by the values: 1 -> (1, 1, ..., 1)
-      mapValues(_.size))              // compress it all to it's instance count: 1 -> 1234
+    (1 to 10000).map(_ => rand7())
+      .groupBy(value => value)        // group all instances by the values: 1 -> (1, 1, ..., 1)
+      .mapValues(_.size)              // compress it all to it's instance count: 1 -> 1234
       .toSeq.sortBy(_._1)             // cast to Seq, sort by key: (1, 1234), (2, 1243), ...
 
   println(results)
