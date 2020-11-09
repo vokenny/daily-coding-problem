@@ -30,6 +30,6 @@ object Problem47 extends App {
     findMaxProfit(stockPrices, 0)
   }
 
-    println(stonksUpProfit(Array(9, 11, 8, 5, 7, 10)))
+  println(stonksUpProfit(Array(9, 11, 8, 5, 7, 10)))
 
 }
