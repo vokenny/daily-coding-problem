@@ -22,18 +22,20 @@ object Problem50 extends App {
   //  You should return 45, as it is (3 + 2) * (4 + 5).
 
   sealed trait Tree
-  case class Node(value: String, left: Tree = Empty, right: Tree = Empty) extends Tree
-  case object Empty extends Tree
+  case class Node(value: String, left: Tree, right: Tree) extends Tree
+  case class Con(value: Int) extends Tree
 
   def evaluate(root: Tree): Int = {
     root match {
       case Node(v, l, r) if v == "*" => evaluate(l) * evaluate(r)
+      case Node(v, l, r) if v == "/" => evaluate(l) / evaluate(r)
       case Node(v, l, r) if v == "+" => evaluate(l) + evaluate(r)
-      case Node(v, _, _) => v.toInt
+      case Node(v, l, r) if v == "-" => evaluate(l) - evaluate(r)
+      case Con(i) => i
     }
   }
 
-  val tree: Tree = Node("*", Node("+", Node("3"), Node("2")), Node("+", Node("4"), Node("5")))
+  val tree: Tree = Node("*", Node("+", Con(3), Con(2)), Node("+", Con(4), Con(5)))
 
   println(evaluate(tree))
 
